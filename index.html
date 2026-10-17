@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Subscribe to Brookvale's alternating Wednesday bin collections. General waste and recycling, straight to your calendar.">
+<title>Brookvale Bins · Your Wednesday reminder</title>
+<style>
+:root{font-family:system-ui,sans-serif;color:#203a30;background:#f5f5ed}*{box-sizing:border-box}body{margin:0}main{max-width:780px;margin:auto;padding:70px 24px}header{font-size:.8rem;font-weight:750;letter-spacing:.18em;text-transform:uppercase}h1{font-size:clamp(2.8rem,8vw,4.8rem);line-height:1.05;letter-spacing:-.055em;margin:30px 0 24px}p{line-height:1.7;color:#506457}.intro{font-size:1.15rem;max-width:580px}.card{margin:35px 0;padding:28px;background:white;border:1px solid #dce4d7;border-radius:20px}.label{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em}h2{margin:12px 0;font-size:1.6rem}.button{display:inline-block;padding:14px 22px;border-radius:10px;background:#254e3c;color:white;text-decoration:none;font-weight:650;margin:8px 10px 8px 0}a{color:#254e3c}button{font:inherit;cursor:pointer;border:1px solid #a7b7aa;background:transparent;padding:12px;border-radius:9px}input{width:100%;margin:10px 0;padding:13px;border:1px solid #b4c2b5;border-radius:8px;font-size:.9rem;color:#354f40;background:#fafbf8}.schedule{display:grid;grid-template-columns:1fr 1fr;gap:16px}.schedule div{padding:20px;border-radius:12px;background:#e6ebde}.schedule strong{display:block;margin-bottom:8px}footer{font-size:.85rem;margin-top:40px}#status{min-height:1.5em}@media(max-width:480px){main{padding-top:40px}.schedule{grid-template-columns:1fr}}
+</style>
+</head>
+<body><main>
+<header>Brookvale / Collection calendar</header>
+<h1>Wednesday.<br>Bins sorted.</h1>
+<p class="intro">General waste one week. Recycling the next. Add Brookvale’s collection calendar once and let your calendar keep track.</p>
+<section class="card" aria-labelledby="next-heading"><span class="label">Next collection</span><h2 id="next-heading">Every Wednesday</h2><p id="next-date">The schedule starts on 21 October 2026.</p></section>
+<section aria-labelledby="subscribe"><h2 id="subscribe">A reminder that stays up to date</h2><p>Subscribe for future date changes. Calendar apps refresh subscriptions on their own schedule; updates may take a day or longer.</p>
+<a class="button" id="subscribe-link" href="webcal://patonar.github.io/brookvale-bins/brookvale-bins.ics">Subscribe to calendar</a>
+<a href="brookvale-bins.ics" download>Download .ics</a>
+<p>For Google Calendar: open Calendar on the web → Other calendars + → From URL, then paste this address. In Outlook, choose Add calendar → Subscribe from web.</p>
+<label for="feed">Calendar feed URL</label><input id="feed" readonly value="https://patonar.github.io/brookvale-bins/brookvale-bins.ics"><button id="copy" type="button">Copy feed URL</button><p id="status" role="status"></p>
+<p>A downloaded file is a one-time snapshot. Use a subscription to receive changes. Events are all-day entries; add a reminder in your calendar app if you want a notification.</p></section>
+<section class="schedule" aria-label="Starting schedule"><div><strong>General waste</strong>21 October 2026<br>Then every other Wednesday</div><div><strong>Recycling</strong>28 October 2026<br>Then every other Wednesday</div></section>
+<footer><p>Schedule: 21 October 2026–20 October 2028. Exceptional collection dates may differ from Wednesdays. This calendar follows the supplied schedule; check local collection notices for confirmation.</p><a href="collections.csv">View editable schedule (CSV)</a> · <a href="https://github.com/patonar/brookvale-bins">Source &amp; date corrections</a></footer>
+</main><script>
+const feed = new URL('brookvale-bins.ics', location.href);
+document.querySelector('#feed').value = feed.href;
+document.querySelector('#subscribe-link').href = feed.href.replace(/^https?:/, 'webcal:');
+document.querySelector('#copy').addEventListener('click', async () => {
+  try { await navigator.clipboard.writeText(feed.href); document.querySelector('#status').textContent = 'Calendar URL copied.'; }
+  catch { document.querySelector('#feed').select(); document.querySelector('#status').textContent = 'Select and copy the URL above.'; }
+});
+fetch('collections.csv').then(r => { if (!r.ok) throw Error(); return r.text(); }).then(text => {
+  const today = new Date(); today.setHours(0,0,0,0);
+  const rows = text.trim().split(/\r?\n/).slice(1).map(line => line.split(','));
+  const next = rows.filter(row => row.length === 3).sort((a,b) => a[1].localeCompare(b[1])).find(row => new Date(row[1] + 'T00:00:00') >= today);
+  if (next) {
+    document.querySelector('#next-heading').textContent = next[2];
+    document.querySelector('#next-date').textContent = new Date(next[1] + 'T00:00:00').toLocaleDateString('en-GB', {weekday:'long',day:'numeric',month:'long',year:'numeric'});
+  } else { document.querySelector('#next-date').textContent = 'This published schedule has ended. Check the source for an updated calendar.'; }
+}).catch(() => { document.querySelector('#next-date').textContent = 'View the calendar feed for collection dates.'; });
+</script></body></html>
