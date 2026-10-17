@@ -23,7 +23,7 @@ Edit `collections.csv`, changing only the `date` cell for the affected event (IS
 
 The default-schedule test checks a baseline fixture; exceptional dates in the CSV do not break that test. The published-CSV test checks valid, unique events, and the exception test verifies identity preservation. To extend the calendar, append new rows with new permanent IDs and update the coverage text and schedule test.
 
-The feed uses UTC modification timestamps, CRLF line endings, UTF-8 line folding, stable UIDs, and date-only DTSTART / exclusive next-day DTEND. It publishes concrete events instead of recurrence rules, allowing each date to move independently. Subscription refresh timing is controlled by the calendar provider. Downloading the feed once does not subscribe. Users configure their own notification reminders.
+The feed uses UTC modification timestamps, CRLF line endings, UTF-8 line folding, stable UIDs, and date-only DTSTART / exclusive next-day DTEND. It publishes concrete events instead of recurrence rules, allowing each date to move independently. Subscription refresh timing is controlled by the calendar provider. Downloading the feed once does not subscribe. Each event contains a DISPLAY VALARM with TRIGGER:-P1D (one day before the all-day event start). No specific local reminder time is promised. Calendar providers may ignore subscription alarms; the webpage explains how to check calendar notification settings and suggests a Tuesday phone reminder when subscription alerts are unavailable.
 
 ## Publish
 

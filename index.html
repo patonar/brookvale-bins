@@ -2,32 +2,40 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Subscribe to Brookvale's alternating Wednesday bin collections. General waste and recycling, straight to your calendar.">
-<title>Brookvale Bins · Your Wednesday reminder</title>
+<meta name="description" content="Know which bin to put out. Add Brookvale's bin days to your Apple or Android calendar.">
+<title>Brookvale Bins · Know which bin to put out</title>
 <style>
-:root{font-family:system-ui,sans-serif;color:#203a30;background:#f5f5ed}*{box-sizing:border-box}body{margin:0}main{max-width:780px;margin:auto;padding:70px 24px}header{font-size:.8rem;font-weight:750;letter-spacing:.18em;text-transform:uppercase}h1{font-size:clamp(2.8rem,8vw,4.8rem);line-height:1.05;letter-spacing:-.055em;margin:30px 0 24px}p{line-height:1.7;color:#506457}.intro{font-size:1.15rem;max-width:580px}.card{margin:35px 0;padding:28px;background:white;border:1px solid #dce4d7;border-radius:20px}.label{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em}h2{margin:12px 0;font-size:1.6rem}.button{display:inline-block;padding:14px 22px;border-radius:10px;background:#254e3c;color:white;text-decoration:none;font-weight:650;margin:8px 10px 8px 0}a{color:#254e3c}button{font:inherit;cursor:pointer;border:1px solid #a7b7aa;background:transparent;padding:12px;border-radius:9px}input{width:100%;margin:10px 0;padding:13px;border:1px solid #b4c2b5;border-radius:8px;font-size:.9rem;color:#354f40;background:#fafbf8}.schedule{display:grid;grid-template-columns:1fr 1fr;gap:16px}.schedule div{padding:20px;border-radius:12px;background:#e6ebde}.schedule strong{display:block;margin-bottom:8px}footer{font-size:.85rem;margin-top:40px}#status{min-height:1.5em}@media(max-width:480px){main{padding-top:40px}.schedule{grid-template-columns:1fr}}
+:root{font-family:system-ui,sans-serif;color:#203a30;background:#f5f5ed}*{box-sizing:border-box}body{margin:0}main{max-width:760px;margin:auto;padding:56px 24px}header{font-size:.8rem;font-weight:750;letter-spacing:.16em;text-transform:uppercase}h1{font-size:clamp(2.6rem,8vw,4.3rem);line-height:1.08;letter-spacing:-.05em;margin:28px 0 20px}p,li{line-height:1.7;color:#506457}h2{font-size:1.5rem;margin:0 0 12px}.intro{font-size:1.15rem}.card{margin:24px 0;padding:26px;background:white;border:1px solid #dce4d7;border-radius:18px}.label{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em}#next-heading{margin:10px 0}#next-date{margin:0}.button{display:inline-block;padding:14px 20px;border-radius:10px;background:#254e3c;color:white;text-decoration:none;font-weight:650;margin:8px 0}a{color:#254e3c}button{font:inherit;cursor:pointer;border:1px solid #a7b7aa;background:#fff;padding:12px 18px;border-radius:9px}input{width:100%;margin:10px 0;padding:13px;border:1px solid #b4c2b5;border-radius:8px;font-size:.85rem;color:#354f40;background:#fafbf8}ol{padding-left:24px}li{padding-left:4px;margin:9px 0}details{margin:20px 0}summary{cursor:pointer;font-weight:650;padding:8px 0}.note{font-size:.95rem}.choices{display:flex;gap:12px;flex-wrap:wrap}.choices a{padding:12px 18px;border:1px solid #a7b7aa;border-radius:30px;text-decoration:none}footer{font-size:.85rem;margin-top:32px}section{scroll-margin-top:20px}#status{min-height:1.5em;margin:6px 0}
 </style>
 </head>
 <body><main>
-<header>Brookvale / Collection calendar</header>
-<h1>Wednesday.<br>Bins sorted.</h1>
-<p class="intro">General waste one week. Recycling the next. Add Brookvale’s collection calendar once and let your calendar keep track.</p>
-<section class="card" aria-labelledby="next-heading"><span class="label">Next collection</span><h2 id="next-heading">Every Wednesday</h2><p id="next-date">The schedule starts on 21 October 2026.</p></section>
-<section aria-labelledby="subscribe"><h2 id="subscribe">A reminder that stays up to date</h2><p>Subscribe for future date changes. Calendar apps refresh subscriptions on their own schedule; updates may take a day or longer.</p>
-<a class="button" id="subscribe-link" href="webcal://patonar.github.io/brookvale-bins/brookvale-bins.ics">Subscribe to calendar</a>
-<a href="brookvale-bins.ics" download>Download .ics</a>
-<p>For Google Calendar: open Calendar on the web → Other calendars + → From URL, then paste this address. In Outlook, choose Add calendar → Subscribe from web.</p>
-<label for="feed">Calendar feed URL</label><input id="feed" readonly value="https://patonar.github.io/brookvale-bins/brookvale-bins.ics"><button id="copy" type="button">Copy feed URL</button><p id="status" role="status"></p>
-<p>A downloaded file is a one-time snapshot. Use a subscription to receive changes. Events are all-day entries; add a reminder in your calendar app if you want a notification.</p></section>
-<section class="schedule" aria-label="Starting schedule"><div><strong>General waste</strong>21 October 2026<br>Then every other Wednesday</div><div><strong>Recycling</strong>28 October 2026<br>Then every other Wednesday</div></section>
-<footer><p>Schedule: 21 October 2026–20 October 2028. Exceptional collection dates may differ from Wednesdays. This calendar follows the supplied schedule; check local collection notices for confirmation.</p><a href="collections.csv">View editable schedule (CSV)</a> · <a href="https://github.com/patonar/brookvale-bins">Source &amp; date corrections</a></footer>
+<header>Brookvale Bins</header>
+<h1>Know which bin<br>to put out.</h1>
+<p class="intro">Bin day is Wednesday. General waste one week, recycling the next. Add the dates to your calendar so they’re always easy to find.</p>
+<section class="card" aria-labelledby="next-heading"><span class="label">Next bin day</span><h2 id="next-heading">Wednesday collections</h2><p id="next-date">General waste starts on 21 October 2026, followed by recycling on 28 October.</p></section>
+<h2>Add bin days to your phone</h2><p>Choose your phone to get started. It’s free, and you only need to set it up once.</p>
+<nav class="choices" aria-label="Choose your phone"><a href="#apple">Apple / iPhone</a><a href="#android">Android</a></nav>
+<section class="card" id="apple"><h2>Apple / iPhone</h2>
+<ol><li>Tap <strong>Add to Apple Calendar</strong> below.</li><li>When Calendar opens, choose <strong>Subscribe</strong>, then confirm or tap <strong>Add</strong>. The wording may vary on your phone.</li><li>Keep event alerts enabled if that option appears.</li></ol>
+<a class="button" id="subscribe-link" href="webcal://patonar.github.io/brookvale-bins/brookvale-bins.ics">Add to Apple Calendar</a>
+<p class="note">Your bin days will appear in Apple Calendar. If nothing opens, use the calendar address under “Need another way?” below to add a subscribed calendar in your Calendar settings.</p>
+</section>
+<section class="card" id="android"><h2>Android / Google Calendar</h2>
+<p>Google needs this one-time setup in a web browser on a computer. Sign in with the same Google account you use on your phone.</p>
+<ol><li>Tap <strong>Copy calendar address</strong> below.</li><li>On your computer, open <a href="https://calendar.google.com/calendar/u/0/r/settings/addbyurl" target="_blank" rel="noopener">Google Calendar’s “From URL” page</a>. If you copied the address on your phone, open this webpage on your computer to copy it there too.</li><li>Paste the address and select <strong>Add calendar</strong>.</li><li>Open Google Calendar on your phone. Tap <strong>☰</strong> and tick <strong>Brookvale Bins</strong>. It may take a little while to appear.</li></ol>
+<button type="button" class="copy">Copy calendar address</button><p id="status" role="status" aria-live="polite"></p>
+</section>
+<section class="card"><h2>A heads-up the day before</h2><p>Each bin day includes a reminder for the previous day. Some calendar apps, including Google Calendar, may ignore reminders supplied with a subscribed calendar.</p><p>To check yours, open your calendar’s settings and look for <strong>Brookvale Bins → Notifications</strong>. If available, add an <strong>all-day event notification, 1 day before</strong>, and choose a time that suits you. Make sure your phone allows calendar notifications too.</p><p class="note">If your app doesn’t offer alerts for subscribed calendars, set a weekly Tuesday reminder on your phone to check which bin is due. Adding this calendar alone cannot guarantee a phone notification.</p></section>
+<details><summary>Need another way?</summary><p>You can paste this address into any calendar app that supports calendar subscriptions:</p><label for="feed">Calendar address</label><input id="feed" readonly value="https://patonar.github.io/brookvale-bins/brookvale-bins.ics"><button type="button" class="copy">Copy calendar address</button><p><a href="brookvale-bins.ics" download>Download the calendar instead</a>. A download is a one-time copy and won’t receive date changes.</p></details>
+<details><summary>What if a bin day changes?</summary><p>Once subscribed, your calendar can pick up corrections automatically. Updates may take a day or longer to appear, depending on your calendar app. Check local collection notices for last-minute changes.</p></details>
+<footer><p>Dates covered: 21 October 2026–20 October 2028. Based on the supplied alternating Wednesday schedule; check local notices for confirmation.</p><a href="https://github.com/patonar/brookvale-bins">About this calendar &amp; report a date correction</a> · <a href="collections.csv">Collection dates</a></footer>
 </main><script>
 const feed = new URL('brookvale-bins.ics', location.href);
 document.querySelector('#feed').value = feed.href;
 document.querySelector('#subscribe-link').href = feed.href.replace(/^https?:/, 'webcal:');
-document.querySelector('#copy').addEventListener('click', async () => {
-  try { await navigator.clipboard.writeText(feed.href); document.querySelector('#status').textContent = 'Calendar URL copied.'; }
-  catch { document.querySelector('#feed').select(); document.querySelector('#status').textContent = 'Select and copy the URL above.'; }
+for (const button of document.querySelectorAll('.copy')) button.addEventListener('click', async () => {
+  try { await navigator.clipboard.writeText(feed.href); button.textContent = 'Address copied ✓'; document.querySelector('#status').textContent = 'Calendar address copied. You can now paste it into your calendar.'; }
+  catch { const input = document.querySelector('#feed'); input.closest('details').open = true; input.focus(); input.select(); input.scrollIntoView({block:'center'}); document.querySelector('#status').textContent = 'Select and copy the calendar address below.'; }
 });
 fetch('collections.csv').then(r => { if (!r.ok) throw Error(); return r.text(); }).then(text => {
   const today = new Date(); today.setHours(0,0,0,0);
@@ -36,6 +44,6 @@ fetch('collections.csv').then(r => { if (!r.ok) throw Error(); return r.text(); 
   if (next) {
     document.querySelector('#next-heading').textContent = next[2];
     document.querySelector('#next-date').textContent = new Date(next[1] + 'T00:00:00').toLocaleDateString('en-GB', {weekday:'long',day:'numeric',month:'long',year:'numeric'});
-  } else { document.querySelector('#next-date').textContent = 'This published schedule has ended. Check the source for an updated calendar.'; }
-}).catch(() => { document.querySelector('#next-date').textContent = 'View the calendar feed for collection dates.'; });
+  } else { document.querySelector('#next-date').textContent = 'This schedule has ended. Please check for an updated calendar.'; }
+}).catch(() => { document.querySelector('#next-date').textContent = 'Check your calendar for the latest collection dates.'; });
 </script></body></html>

@@ -30,6 +30,10 @@ class CalendarTests(unittest.TestCase):
         data = gen.calendar(rows, '20261017T000000Z')
         self.assertEqual(data.count(b'BEGIN:VEVENT\r\n'), len(rows))
         self.assertEqual(len(rows), 105)
+        for event in data.split(b'BEGIN:VEVENT\r\n')[1:]:
+            self.assertEqual(event.count(b'BEGIN:VALARM\r\n'), 1)
+            self.assertIn(b'ACTION:DISPLAY\r\nTRIGGER:-P1D\r\n', event)
+            self.assertIn(b'END:VALARM\r\nEND:VEVENT', event)
 
     def test_exception_preserves_uid(self):
         rows = gen.load_events(ROOT / 'collections.csv')

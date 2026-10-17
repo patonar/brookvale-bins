@@ -60,7 +60,10 @@ def calendar(rows, stamp):
                   f'DTEND;VALUE=DATE:{day + timedelta(days=1):%Y%m%d}',
                   'SUMMARY:' + escape('Brookvale Bins — ' + row['collection']),
                   'DESCRIPTION:' + escape(row['collection'] + ' collection. Dates may change; subscribe for updates.'),
-                  'STATUS:CONFIRMED', 'TRANSP:TRANSPARENT', 'END:VEVENT']
+                  'STATUS:CONFIRMED', 'TRANSP:TRANSPARENT',
+                  'BEGIN:VALARM', 'ACTION:DISPLAY', 'TRIGGER:-P1D',
+                  'DESCRIPTION:' + escape('Tomorrow: Brookvale Bins — ' + row['collection']),
+                  'END:VALARM', 'END:VEVENT']
     return ('\r\n'.join(fold(line) for line in lines + ['END:VCALENDAR']) + '\r\n').encode('utf-8')
 
 
